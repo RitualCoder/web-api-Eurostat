@@ -11,6 +11,10 @@ function display_salaire(x) {
     })
 }
 
+function invert_color(percent, name) {
+    document.getElementById(name).style.filter=`invert(${percent})`;
+}
+
 result1.textContent = `0€/mois`;
 result2.textContent = `0€/mois`;
 result3.textContent = `0€/mois`;

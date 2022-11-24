@@ -64,25 +64,25 @@
             <option value="33">Royaume-Uni</option>
         </select>
     </div>
-    <div class="title">
-        <div class="title1">
-            <h6 >Salaire hommes</h6>
-        </div>
-        <div class="title2">
-            <h6 >Salaire femmes</h6>
-        </div>
-        <div class="title3">
-            <h6 >Salaire moyen</h6>
-        </div>
-    </div>
+    
     <div class="result">
-        <div class="result1" id="result1"></div>
-        <div class="result2" id="result2"></div>
-        <div class="result3" id="result3"></div>
+        <div class="result1" onmouseover="invert_color(100, 'man')" onmouseleave="invert_color(0, 'man')">
+            <img  id="man" src="img/man.png" alt="Man">
+            <div id="result1"></div>
+        </div>
+        <div class="result2" onmouseover="invert_color(100, 'woman')" onmouseleave="invert_color(0, 'woman')">
+            <img id="woman" src="img/woman.png" alt="Woman">
+            <div  id="result2"></div>
+        </div>
+        <div class="result3" onmouseover="invert_color(100, 'average')" onmouseleave="invert_color(0, 'average')">
+            <img id="average" src="img/average.png" alt="Average">
+            <div id="result3"></div>
+        </div>
+        
     </div>
     <a href="https://github.com/Enzo1408">
         <div class="signature">
-            <h6>Copyright © - Created by &#119862;&#119900;&#119903;&#119899;&#119886;&#119892;&#119892;&#119894;&#119886; &#119864;&#119899;&#119911;&#119900;</h6>
+            <h6>Copyright © - Created by Enzo Cornaggia</h6>
         </div>
     </a>
     <script src="script.js"></script>
