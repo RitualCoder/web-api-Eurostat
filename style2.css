@@ -46,10 +46,19 @@ img {
 }
 
 @media screen and (max-width: 1143px) {
+    .div_country {
+        top: 20%;
+    }
+    img {
+        display: inline-block;
+        height: 30px;
+        margin-bottom: 10px;
+    }
+
     .result {
         position: absolute;
         font-family: 'Mulish', sans-serif;
-        font-size: 30px;
+        font-size: 20px;
         text-align: center;
         top: 55%;
         left: 50%;
