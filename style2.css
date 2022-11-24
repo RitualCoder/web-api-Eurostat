@@ -33,11 +33,7 @@ h6 {
     color: rgb(0, 0, 125);
 }
 
-.result div:hover {
-    background-color: rgb(0, 0, 125);
-    color: white;
-    cursor: pointer;
-}
+
 
 img {
     display: inline-block;
@@ -101,6 +97,12 @@ img {
 }
 
 @media screen and (min-width: 1143px) {
+    .result div:hover {
+        background-color: rgb(0, 0, 125);
+        color: white;
+        cursor: pointer;
+    }
+
     .result {
         position: absolute;
         top: 55%;
