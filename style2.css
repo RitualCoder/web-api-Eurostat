@@ -4,7 +4,7 @@ h6 {
 
 .div_country {
     position: absolute;
-    top: 25%;
+    top: 300px;
     left: 50%;
     transform: translate(-50%, -50%);
     height: auto;
@@ -22,6 +22,8 @@ h6 {
     background-color: transparent;
     color: rgb(0, 0, 125);
     font-family: 'Mulish', sans-serif;
+    width: auto;
+    margin: 0;
 }
 
 
@@ -42,13 +44,33 @@ img {
 }
 
 @media screen and (max-width: 1143px) {
-    .div_country {
-        top: 20%;
+
+    .body1 {
+        position: relative;
+        top: 200px;
+        left: 0px;
+        height: 100%;
+        width: 100%;
+        display: inline-block;
+        padding-bottom: 50px ;
+        min-height: 100vh;
     }
+    .div_country {
+        width: 100%;
+        top: 150px;
+
+    }
+
+    .country_select {
+        margin-left: 25%;
+        width: 50%;
+        font-size: 20px;
+    }
+
     img {
         display: inline-block;
         height: 30px;
-        margin-bottom: 10px;
+        margin: 10px 0px 10px 0px;
     }
 
     .result {
@@ -56,14 +78,11 @@ img {
         font-family: 'Mulish', sans-serif;
         font-size: 20px;
         text-align: center;
-        top: 55%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        top: 0px;
         height: auto;
-        width: 380px;
+        width: 100%;
         color: rgb(0, 0, 125);
-        padding-left: 5px;
-        padding-right: 5px;
+        display: inline-block;
     }
 
     .result1 {
@@ -73,7 +92,6 @@ img {
         height: auto;
         margin: 10px 10px 10px 10px;
         display: inline-block;
-        white-space: pre-line;
     }
     .result2 {
         border: solid;
@@ -82,7 +100,6 @@ img {
         height: auto;
         margin: 10px 10px 10px 10px;
         display: inline-block;
-        white-space: pre-line;
     }
     
     .result3 {
@@ -92,7 +109,6 @@ img {
         height: auto;
         margin: 10px 10px 10px 10px;
         display: inline-block;
-        white-space: pre-line;
     }
 }
 
@@ -100,8 +116,8 @@ img {
     .result div:hover {
         background-color: rgb(0, 0, 125);
         color: white;
-        cursor: pointer;
     }
+
 
     .result {
         position: absolute;
@@ -146,6 +162,19 @@ img {
         border-radius: 0.5em;
         white-space: pre-line;
     }
+    .foot {
+        position: absolute;
+        bottom: 0px;
+        width: 100%;
+        height: 50px;
+        left: 0px;
+        text-align: center;
+    }
+    footer {
+        color: blue;
+        text-align: center;
+        border: solid;
+      }
 }
 
 
