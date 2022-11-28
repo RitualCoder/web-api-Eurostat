@@ -1,7 +1,8 @@
 function display_salaire(x) {
-    fetch('https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/earn_ses_agt21?format=JSON&lang=EN')
+    fetch('https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/earn_ses_agt21?format=JSON&lang=EN&')
     .then(res => res.json())
     .then(data => {
+        console.log(data.dimension.geo.category.index);
         result3.textContent = `${data.value[x]}€/mois`;
         // increment index to load the correct value in the JSON
         x = x + 34;
