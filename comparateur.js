@@ -35,7 +35,7 @@ const country_name_pib = new Map();
 const id_pib = new Map();
 
 function catch_pib() {
-    fetch('https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tps00001?format=JSON&lang=FR&Time=2020')
+    fetch('https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/NAMA_10_GDP?format=JSON&lang=EN&time=2019&unit=CP_MEUR&na_item=B1GQ')
     .then(res => res.json())
     .then(data => {
         set_codename (data, country_name_pib);
@@ -136,7 +136,6 @@ catch_edu();
 var el1 = document.getElementById('country1');
 el1.addEventListener('change', function() {
     display (jsondata_sal, this.value, country_name_sal, sal_id, "sal1", "{} €/mois");
-
     display(jsondata_pop, this.value, country_name_pop, id_pop, "pop1", "{} habitants");
     display(jsondata_pib, this.value, country_name_pib, id_pib, "pib1", "{} millions");
     display(jsondata_life, this.value, country_name_life, id_life, "vie1", "{} ans");
