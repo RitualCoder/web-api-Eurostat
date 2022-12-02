@@ -35,7 +35,7 @@ const country_name_pib = new Map();
 const id_pib = new Map();
 
 function catch_pib() {
-    fetch('https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/NAMA_10_GDP?format=JSON&lang=EN&time=2019&unit=CP_MEUR&na_item=B1GQ')
+    fetch('https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/NAMA_10_GDP?format=JSON&lang=FR&time=2019&unit=CP_MEUR&na_item=B1GQ')
     .then(res => res.json())
     .then(data => {
         set_codename (data, country_name_pib);
@@ -112,6 +112,32 @@ function display(data, x, map1, map2, id, format) { // data = JSON, x = select v
     document.getElementById(id).textContent = format.replace("{}", data.value[values].toLocaleString());
 }
 
+function change_text_color() {
+    var array = ["pop1", "pop2", "pib1", "pib2","med1", "med2", "edu1", "edu2", "sal1", "sal2", "vie1", "vie2"];
+    if (document.getElementById("pop1").textContent != "---" && document.getElementById("pop2").textContent != "---" ) {
+        for (var i = 0; i < array.length; i+=2) {
+            var str1 = document.getElementById(array[i]).textContent;
+            var str2 = document.getElementById(array[i+1]).textContent;
+            var res1 = str1.replace(/[A-z\s]+/g, "");
+            var res2 = str2.replace(/[A-z\s]+/g, "");
+            var res1 = res1.replace(",", ".");
+            var res2 = res2.replace(",", ".");
+            if (parseFloat(res1) > parseFloat(res2)) {
+                document.getElementById(array[i]).style.color = "green";
+                document.getElementById(array[i+1]).style.color = "red";
+            }
+            else if (parseFloat(res1) < parseFloat(res2)) {
+                document.getElementById(array[i]).style.color = "red";
+                document.getElementById(array[i+1]).style.color = "green";
+            }
+            else if (parseFloat(res1) == parseFloat(res2)) {
+                document.getElementById(array[i]).style.color = "black";
+                document.getElementById(array[i+1]).style.color = "black";
+            }
+        }
+    }
+}
+
 pop1.textContent = `---`;
 pop2.textContent = `---`;
 pib1.textContent = `---`;
@@ -125,22 +151,24 @@ med2.textContent = `---`;
 vie1.textContent = `---`;
 vie2.textContent = `---`;
 
-
+console.log(parseFloat("12 000.4dgee".replace(/[A-z\s]+/g, "")));
 catch_salaire();
 catch_pop();
 catch_pib();
 catch_life();
 catch_med();
 catch_edu();
-
 var el1 = document.getElementById('country1');
+
 el1.addEventListener('change', function() {
-    display (jsondata_sal, this.value, country_name_sal, sal_id, "sal1", "{} €/mois");
-    display(jsondata_pop, this.value, country_name_pop, id_pop, "pop1", "{} habitants");
+    
     display(jsondata_pib, this.value, country_name_pib, id_pib, "pib1", "{} millions");
+    display (jsondata_sal, this.value, country_name_sal, sal_id, "sal1", "{} €/mois");
+    display(jsondata_pop, this.value, country_name_pop, id_pop, "pop1", "{} habitants");    
     display(jsondata_life, this.value, country_name_life, id_life, "vie1", "{} ans");
     display(jsondata_edu, this.value, country_name_edu, id_edu, "edu1", "{} millions");
     display(jsondata_med, this.value, country_name_med, id_med, "med1", "{} millions");
+    change_text_color();
 }, false);
 
 var el2 = document.getElementById('country2');
@@ -151,4 +179,5 @@ el2.addEventListener('change', function() {
     display(jsondata_life, this.value, country_name_life, id_life, "vie2", "{} ans");
     display(jsondata_edu, this.value, country_name_edu, id_edu, "edu2", "{} millions");
     display(jsondata_med, this.value, country_name_med, id_med, "med2", "{} millions");
-}, false);
+    change_text_color();
+}, false); 
